@@ -41,13 +41,19 @@ class Flames:
 	def output(self):
 		print self.result
 
+class TrueLove:
+	def __init__(self, name1, name2):
+		self.name1 = name1
+		self.name2 = name2
+		self.trueLove = {}
+
 names = raw_input("Names ")
 
 verifier = InputVerification()
 
 if(verifier.validate(names)):
 	names = sub(r'\s+', '', names)
-	name1,name2 = names.split(",")
+	name1,name2 = names.lower().split(",")
 	Flames(name1, name2)
 else:
 	print "Invalid Input"
