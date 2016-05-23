@@ -9,8 +9,8 @@ class FlamesCalculator:
 		self.calculateCount()
 		self.calculateResult()
 
-	def remove(self, stringToBeAltered, delimeter, count):
-		string = stringToBeAltered.split(delimeter, count)
+	def remove(self, stringToBeAltered, delimiter, count):
+		string = stringToBeAltered.split(delimiter, count)
 		return string[0] + string[1]
 
 	def calculateCount(self):
