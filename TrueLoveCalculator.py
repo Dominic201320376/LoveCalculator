@@ -19,4 +19,6 @@ class TrueLoveCalculator:
 		true = self.trueLove["t"] + self.trueLove["r"] + self.trueLove["u"] + self.trueLove["e"]
 		love = self.trueLove["l"] + self.trueLove["o"] + self.trueLove["v"] + self.trueLove["e"]
 
-		return true*10 + love
+		if(true == 0):
+			return str(love)
+		return str(true) + str(love)

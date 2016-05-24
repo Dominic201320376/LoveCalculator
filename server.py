@@ -23,7 +23,7 @@ def client(connection):
 
 			elif(choice == "2"):
 				trueLove = TrueLoveCalculator(name1, name2)
-				connection.send(str(trueLove.output()) + "\nPress enter to continue")
+				connection.send(trueLove.output() + "\nPress enter to continue")
 			else:
 				connection.send("Invalid Input" + "\nPress enter to continue")
 		else:

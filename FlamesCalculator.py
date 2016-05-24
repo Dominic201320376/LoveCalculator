@@ -31,4 +31,15 @@ class FlamesCalculator:
 			self.result = self.remove(self.result, self.result[charCount], 1)
 
 	def output(self):
-		return self.result
+		if(self.result == "F"):
+			return "Friendship"
+		elif(self.result == "L"):
+			return "Love"
+		elif(self.result == "A"):
+			return "Affection"
+		elif(self.result == "M"):
+			return "Marriage"
+		elif(self.result == "E"):
+			return "Enemy"
+		elif(self.result == "S"):
+			return "Sister"

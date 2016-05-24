@@ -39,49 +39,49 @@ class FlamesUnitTest(unittest.TestCase):
 
 	def testOutputF(self):
 		calc = FlamesCalculator("carl", "marco")
-		self.assertEqual(calc.output(), "F")
+		self.assertEqual(calc.output(), "Friendship")
 
 	def testOutputL(self):
 		calc = FlamesCalculator("regina", "potato")
-		self.assertEqual(calc.output(), "L")
+		self.assertEqual(calc.output(), "Love")
 
 	def testOutputA(self):
 		calc = FlamesCalculator("michelle", "juan")
-		self.assertEqual(calc.output(), "A")
+		self.assertEqual(calc.output(), "Affection")
 
 	def testOutputM(self):
 	 	calc = FlamesCalculator("isabella", "eduardo")
-	 	self.assertEqual(calc.output(), "M")
+	 	self.assertEqual(calc.output(), "Marriage")
 
 	def testOutputE(self):
 		calc = FlamesCalculator("dominic", "lenovo")
-		self.assertEqual(calc.output(), "E")
+		self.assertEqual(calc.output(), "Enemy")
 
 	def testOutputS(self):
 		calc = FlamesCalculator("adfgikmnrtu", "bcehjlopqsvwxyzaaa")
-		self.assertEqual(calc.output(), "S")
+		self.assertEqual(calc.output(), "Sister")
 
 class TrueLoveUnitTest(unittest.TestCase):
 
 	def testOutputZero(self):
 		calc = TrueLoveCalculator("amaya", "amaya")
-		self.assertEqual(calc.output(), 0)
+		self.assertEqual(calc.output(), "0")
 
 	def testOutputOneDigit(self):
 		calc = TrueLoveCalculator("makoy", "lovi")
-		self.assertEqual(calc.output(), 4)
+		self.assertEqual(calc.output(), "4")
 
 	def testOutputTwoDigits(self):
 		calc = TrueLoveCalculator("athena", "zeus")
-		self.assertEqual(calc.output(), 42)
+		self.assertEqual(calc.output(), "42")
 	
 	def testOutputThreeDigits(self):
 		calc = TrueLoveCalculator("truelen", "louvette")
-		self.assertEqual(calc.output(), 108)
+		self.assertEqual(calc.output(), "108")
 
 	def testOutputGreaterThanThreeDigits(self):
 		calc = TrueLoveCalculator("christopher taker truest true true true ulysses tomlinson truelen tart queue evaluater", "ttttttttrrrrrrrruuuuuueeeeeeeuueueueueueeueueueueueue")
-		self.assertEqual(calc.output(), 1010)
+		self.assertEqual(calc.output(), "9740")
 
 if __name__ == '__main__':
 	unittest.main()
