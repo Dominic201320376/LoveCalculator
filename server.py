@@ -1,7 +1,7 @@
 from re import sub
 from FlamesCalculator import FlamesCalculator
 from TrueLoveCalculator import TrueLoveCalculator
-from InputVerification import InputVerification
+from InputValidator import InputValidator
 import socket
 from threading import Thread
 
@@ -11,7 +11,7 @@ def client(connection):
 	while True:
 		connection.send("Names: ")
 		names = connection.recv(1024)
-		verifier = InputVerification()
+		verifier = InputValidator()
 
 		if(verifier.validate(names)):
 			names = sub(r'\s+', '', names)

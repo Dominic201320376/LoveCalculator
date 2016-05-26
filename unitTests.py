@@ -1,38 +1,38 @@
 # coding: utf-8
 
 import unittest
-from InputVerification import InputVerification
+from InputValidator import InputValidator
 from FlamesCalculator import FlamesCalculator
 from TrueLoveCalculator import TrueLoveCalculator
 
-class TestInputVerification(unittest.TestCase):
+class TestInputValidator(unittest.TestCase):
 
 	def testEmptyString(self):
-		verifier = InputVerification()
+		verifier = InputValidator()
 		self.assertFalse(verifier.validate(""))
 
 	def testCommaOnly(self):
-		verifier = InputVerification()
+		verifier = InputValidator()
 		self.assertTrue(verifier.validate(","))
 
 	def testOneNameNoComma(self):
-		verifier = InputVerification()
+		verifier = InputValidator()
 		self.assertFalse(verifier.validate("name"))
 
 	def testOneNameWithComma(self):
-		verifier = InputVerification()
+		verifier = InputValidator()
 		self.assertTrue(verifier.validate("name,"))
 
 	def testTwoNames(self):
-		verifier = InputVerification()
+		verifier = InputValidator()
 		self.assertTrue(verifier.validate("name,names"))
 
 	def testNamesWithNumbers(self):
-		verifier = InputVerification()
+		verifier = InputValidator()
 		self.assertTrue(verifier.validate("name456,names123"))
 
 	def testNamesWithNonASCIICharacters(self):
-		verifier = InputVerification()
+		verifier = InputValidator()
 		self.assertTrue(verifier.validate("name,µé±├"))
 
 class FlamesUnitTest(unittest.TestCase):
