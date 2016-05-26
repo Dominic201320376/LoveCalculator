@@ -28,6 +28,7 @@ def client(connection):
 				connection.send("Invalid Input" + "\nPress enter to continue")
 		else:
 			connection.send("Invalid Input" + "\nPress enter to continue")
+		# add timer
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serversocket.bind(('', 54321))
