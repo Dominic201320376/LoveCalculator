@@ -1,4 +1,7 @@
+#Program only tested on Linux with Python 2.7
+
 from re import sub
+import sys, select
 from FlamesCalculator import FlamesCalculator
 from TrueLoveCalculator import TrueLoveCalculator
 from InputValidator import InputValidator
@@ -22,8 +25,6 @@ def client(connection):
 			elif(choice == "2"):
 				trueLove = TrueLoveCalculator(name1, name2)
 				connection.send(trueLove.output() + "\nPress enter to continue")
-			else:
-				connection.send("Invalid Input" + "\nPress enter to continue")
 		else:
 			connection.send("Invalid Input" + "\nPress enter to continue")
 
@@ -31,8 +32,23 @@ serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serversocket.bind(('', 54321))
 serversocket.listen(5)
 
-print("Choose algorithm\n1:FLAMES\n2:TRUE LOVE\n")
-choice = raw_input()
+while True:
+
+	print("Choose algorithm\n1:FLAMES\n2:TRUE LOVE\n")
+	print("You have ten seconds to answer")
+	str1, temp1, temp2 = select.select( [sys.stdin], [], [], 10 )
+
+	if(str1):
+		choice = sys.stdin.readline().strip()
+	else:
+		choice = "1"
+		print "Choice defaulted to FLAMES\n"
+
+	if choice == "1" or choice == "2":
+		break
+		
+	print "Invalid Input"
+
 
 while True:
 	connection, address = serversocket.accept()
