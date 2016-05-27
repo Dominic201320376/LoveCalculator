@@ -13,7 +13,11 @@ class TestInputValidator(unittest.TestCase):
 
 	def testCommaOnly(self):
 		verifier = InputValidator()
-		self.assertTrue(verifier.validate(","))
+		self.assertFalse(verifier.validate(","))
+
+	def testMoreThanOneComma(self):
+		verifier = InputValidator()
+		self.assertFalse(verifier.validate(",,"))
 
 	def testOneNameNoComma(self):
 		verifier = InputValidator()
@@ -21,7 +25,7 @@ class TestInputValidator(unittest.TestCase):
 
 	def testOneNameWithComma(self):
 		verifier = InputValidator()
-		self.assertTrue(verifier.validate("name,"))
+		self.assertFalse(verifier.validate("name,"))
 
 	def testTwoNames(self):
 		verifier = InputValidator()
@@ -29,11 +33,11 @@ class TestInputValidator(unittest.TestCase):
 
 	def testNamesWithNumbers(self):
 		verifier = InputValidator()
-		self.assertTrue(verifier.validate("name456,names123"))
+		self.assertFalse(verifier.validate("name456,names123"))
 
 	def testNamesWithNonASCIICharacters(self):
 		verifier = InputValidator()
-		self.assertTrue(verifier.validate("name,µé±├"))
+		self.assertFalse(verifier.validate("name,µé±├"))
 
 class FlamesUnitTest(unittest.TestCase):
 
