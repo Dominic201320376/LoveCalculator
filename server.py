@@ -6,8 +6,6 @@ import socket
 from threading import Thread
 
 def client(connection):
-	connection.send("Choose algorithm\n1:FLAMES\n2:TRUE LOVE\n")
-	choice = connection.recv(1024)
 	while True:
 		connection.send("Names: ")
 		names = connection.recv(1024)
@@ -28,11 +26,13 @@ def client(connection):
 				connection.send("Invalid Input" + "\nPress enter to continue")
 		else:
 			connection.send("Invalid Input" + "\nPress enter to continue")
-		# add timer
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serversocket.bind(('', 54321))
 serversocket.listen(5)
+
+print("Choose algorithm\n1:FLAMES\n2:TRUE LOVE\n")
+choice = raw_input()
 
 while True:
 	connection, address = serversocket.accept()
